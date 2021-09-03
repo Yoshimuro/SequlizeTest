@@ -1,14 +1,16 @@
 // lib/config/routes.ts
-import { Request, Response } from "express";
 import { NodesController } from "../controllers/nodes.controller";
 import {LinksController} from "../controllers/links.controller";
+import {GrapthController} from "../controllers/grapth.controller";
+
 
 export class Routes {
     public nodesController: NodesController = new NodesController();
-    public linksController: LinksController = new LinksController()
+    public linksController: LinksController = new LinksController();
+    public graphController: GrapthController = new GrapthController()
 
     public routes(app): void {
-        app.route("/").get(this.nodesController.index);
+        app.route("/").get(this.graphController.mermaid);
 
 
         app
