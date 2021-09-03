@@ -1,7 +1,8 @@
 import {Sequelize} from "sequelize";
 
 export const database = new Sequelize({
-    database: "twitter_clone",
+    database: "db",
+    host: 'localhost',
     dialect: "sqlite",
-    storage:":memory:"
+    storage:"./db.sqlite"
 })
