@@ -38,18 +38,19 @@ export class LinksController{
         };
 
         Link.update(params,options)
-            .then(() => res.status(202).json({data: "success"}))
+            .then(() => res.status(202).json({data: "update success"}))
             .catch((err: Error)=> res.status(500).json(err))
     }
     public delete(req: Request, res: Response){
-        const linkId: number = parseInt(req.params.id);
+        //@ts-ignore
+        const linkId: number = req.params.id;
 
         const options: DestroyOptions= {
             where: {id: linkId},
             limit: 1
         }
         Link.destroy(options)
-            .then(()=> res.status(204).json({data: "success"}))
+            .then(()=> res.status(202).json({data: "delete success"}))
             .catch((err: Error) => res.status(500).json(err))
     }
 }

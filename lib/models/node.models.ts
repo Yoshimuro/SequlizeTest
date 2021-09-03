@@ -45,4 +45,4 @@ Node.hasMany(Link, {
 
 
 
-Node.sync({force:true}).then(() => console.log("node Table created"))
+Node.sync( ).then(() => console.log("node Table created"))

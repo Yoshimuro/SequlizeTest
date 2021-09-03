@@ -36,20 +36,21 @@ export class NodesController {
          limit:1
      };
      Node.update(params,update)
-         .then(() => res.status(202).json({data:"success"}))
+         .then(() => res.status(202).json({data:"update success"}))
          .catch((err: Error) => res.status(500).json(err.message))
     }
 
-    public delete(req:Request, res:Response){
-        const nodeID: number = parseInt(req.params.id)
+    public delete(req: Request, res: Response) {
+        //@ts-ignore
+        const nodeId: number = req.params.id;
         const options: DestroyOptions = {
-            where: {id: nodeID},
+            where: { id: nodeId },
             limit: 1
-        }
+        };
 
         Node.destroy(options)
-            .then(() => res.status(204).json({data:"success"}))
-            .catch((err:Error) => res.status(500).json(err))
+            .then(() => res.status(202).json({ data: " delete success" }))
+            .catch((err: Error) => res.status(500).json(err));
     }
 }
 

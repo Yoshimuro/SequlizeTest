@@ -35,4 +35,4 @@ Link.init(
     }
 );
 
-Link.sync({force:true}).then(()=> console.log("links Table created"))
+Link.sync().then(()=> console.log("links Table created"))
